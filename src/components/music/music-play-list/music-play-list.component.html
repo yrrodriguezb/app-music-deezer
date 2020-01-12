@@ -1,0 +1,9 @@
+<div>
+  <v-subheader class="mt-4 grey--text text--darken-1">PLAYLISTS</v-subheader>
+  
+  <app-music-play-list-item
+    v-for="(play, index) in playlist" 
+    :key="play.id"
+    :item="play">
+  </app-music-play-list-item>
+</div>

@@ -1,0 +1,20 @@
+<v-app-bar
+    app
+    clipped-left
+  >
+    <v-app-bar-nav-icon @click.stop="emitDrawerClick" />
+    <v-toolbar-title>{{ title }}</v-toolbar-title>
+
+    <v-spacer></v-spacer>
+
+    <v-text-field
+      hide-details
+      single-line
+      placeholder="Buscar"
+      rounded
+      background-color="grey darken-2"
+      color="white"
+    >
+    </v-text-field>
+</v-app-bar>
+
