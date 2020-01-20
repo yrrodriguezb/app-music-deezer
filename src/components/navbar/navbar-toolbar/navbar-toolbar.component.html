@@ -7,14 +7,48 @@
 
     <v-spacer></v-spacer>
 
-    <v-text-field
-      hide-details
-      single-line
-      placeholder="Buscar"
-      rounded
-      background-color="grey darken-2"
-      color="white"
-    >
-    </v-text-field>
+    <app-control-search
+      backgroundColor="grey darken-2"
+      color="white"     
+      text="title_short"
+      value="id"
+      placeholder="Buscar..."
+      v-on:searchItemSelected="onSearchItemSelected"
+    ></app-control-search>
+
+    
+
+    <v-btn icon>
+      
+    </v-btn>
+
+    <v-menu offset-y :close-on-content-click="closeOnContentClick">
+      <template v-slot:activator="{ on }">
+        <v-btn
+          v-model="value"
+          icon
+          v-on="on"
+        >
+          <v-icon>mdi-dots-vertical</v-icon>
+        </v-btn>
+      </template>
+
+      <v-list>
+        <v-list-item>
+          <strong>Yeison Raul Rodriguez</strong>
+        </v-list-item>
+        <v-list-item>
+          <v-list-item-content>
+            <v-switch
+              v-model="$vuetify.theme.dark"
+              class="mx-2"
+              :label="switchLabel"
+              >
+            </v-switch>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+    </v-menu>
+ 
 </v-app-bar>
 

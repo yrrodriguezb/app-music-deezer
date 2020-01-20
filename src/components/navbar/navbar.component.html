@@ -11,7 +11,12 @@
   </v-navigation-drawer>
 
   <!-- BEGIN NAVBAR TOOLBAR COMPONENT -->
-  <app-navbar-toolbar :drawer="drawer" title="App Music Deezer" v-on:clikedDrawer="onClikedDrawer"></app-navbar-toolbar>
+  <app-navbar-toolbar 
+    :drawer="drawer" 
+    title="App Music Deezer" 
+    v-on:clikedDrawer="onClikedDrawer"
+    >
+  </app-navbar-toolbar>
   <!-- END NAVBAR TOOLBAR COMPONENT -->
 
   <!-- BEGIN V-CONTENT COMPONENT -->
@@ -37,7 +42,7 @@
 
   <!-- BEGIN V-FOOTER COMPONENT -->
   <v-footer app>
-    <v-row align="center" justify="center">
+    <v-row>
       <v-col cols="12" sm="12">
         <span>&copy; 2020 &nbsp;</span>
         Hecho con &nbsp;<v-btn x-small color="info" dark href="https://www.deezer.com/">API Deezer</v-btn>
