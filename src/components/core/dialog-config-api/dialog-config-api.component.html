@@ -1,0 +1,29 @@
+<div>
+
+  <v-dialog v-model="dialog" persistent max-width="600px">
+
+    <v-card>
+      <v-card-title>
+        <span class="headline">Datos de configuración</span>
+      </v-card-title>
+      <v-card-text>
+        <v-container>
+          <v-row>
+            <v-col cols="12">
+              <v-text-field type="password" label="Host *" required v-model="host"></v-text-field>
+            </v-col>
+            <v-col cols="12">
+              <v-text-field type="password" label="Key *" required v-model="key"></v-text-field>
+            </v-col>
+          </v-row>
+        </v-container>
+        <small>* Indica los campos que son requeridos</small>
+      </v-card-text>
+      <v-card-actions>
+        <v-spacer></v-spacer>
+        <v-btn v-if="show_btn_cancel" color="pink" text @click="close">Cancelar</v-btn>
+        <v-btn color="primary" text @click="save">Guardar</v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-dialog>
+</div>

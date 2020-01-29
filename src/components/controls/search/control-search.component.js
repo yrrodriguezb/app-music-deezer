@@ -1,4 +1,5 @@
 import searchService from "@/services/search.service";
+import EventBus from "@/utils/event-bus";
 
 export default {
   name: 'ControlSearchComponent',
@@ -37,7 +38,7 @@ export default {
       this.isLoading = true
 
       this.suscription = searchService.find(val).subscribe({
-        next: result => this.items = result.data,
+        next: this.onSuccess,
         error: this.onError,
         complete: () => this.isLoading = false
       })
@@ -48,8 +49,14 @@ export default {
       if (this.suscriptor)
         this.suscriptor.unsubscribe();
     },
-    onError(err) {
-      alert(err);
+    onError() {
+      EventBus.$emit("errorService", true);
+    },
+    onSuccess(result) {
+      if (!result.error)
+        this.items = result.data;
+      else if (result.status == 401)
+        this.onError();
     }
   },
   destroyed() {

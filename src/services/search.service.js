@@ -2,8 +2,8 @@ import { of } from 'rxjs';
 import { switchMap, catchError, debounceTime } from 'rxjs/operators';
 import { fromFetch } from "rxjs/fetch";
 import { fetchUrls } from "@/enviroments";
-import { API_DEEZER } from "@/secrets";
 import { times } from "@/enviroments";
+import serviceKeys from "@/utils/service.keys";
 
 const URLService = `${fetchUrls.apis.deezer}/search/`;
 
@@ -15,8 +15,8 @@ export default {
     return fromFetch(_URL, {
       "method": "GET",
       "headers": {
-        "x-rapidapi-host": API_DEEZER.X_RAPIDAPI_HOST,
-        "x-rapidapi-key": API_DEEZER.X_RAPIDAPI_KEY
+        "x-rapidapi-host": serviceKeys.HOST,
+        "x-rapidapi-key": serviceKeys.KEY
       }
     })
     .pipe(
@@ -25,11 +25,11 @@ export default {
         if (response.ok) {
           return response.json();
         } else {
-          return of({ error: true, message: `Error ${response.status}` });
+          return of({ error: true, message: `Error ${response.status}`, status: response.status });
         }
       }),
       catchError(err => {
-        return of({ error: true, message: err.message })
+        return of({ error: true, message: err.message, status: 500 })
       })
     );
   }

@@ -16,13 +16,7 @@
       v-on:searchItemSelected="onSearchItemSelected"
     ></app-control-search>
 
-    
-
-    <v-btn icon>
-      
-    </v-btn>
-
-    <v-menu offset-y :close-on-content-click="closeOnContentClick">
+    <v-menu dense offset-y :close-on-content-click="closeOnContentClick">
       <template v-slot:activator="{ on }">
         <v-btn
           v-model="value"
@@ -33,22 +27,38 @@
         </v-btn>
       </template>
 
-      <v-list>
-        <v-list-item>
-          <strong>Yeison Raul Rodriguez</strong>
-        </v-list-item>
-        <v-list-item>
-          <v-list-item-content>
-            <v-switch
-              v-model="$vuetify.theme.dark"
-              class="mx-2"
-              :label="switchLabel"
-              >
-            </v-switch>
-          </v-list-item-content>
-        </v-list-item>
+      <v-list dense v-for="(item, index) in items" :key="item.id">
+        <v-subheader v-text="item.subheader"></v-subheader>
+
+        <v-list-item-group color="primary">  
+            <v-list-item v-for="subitem in item.subitems" :key="subitem.id" @click="onClickListItem(subitem.id)">
+              <v-list-item-icon v-if="subitem.icon">
+                <v-icon v-text="subitem.icon"></v-icon>
+              </v-list-item-icon>
+
+              <v-list-item-action v-if="subitem.switch">
+                <v-switch
+                  v-model="$vuetify.theme.dark"
+                  class="mx-2"
+                  hide-detail
+                  >
+                </v-switch>
+              </v-list-item-action>
+
+              <v-list-item-content>
+                <v-list-item-title v-text="subitem.text"></v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+        </v-list-item-group>
+
+        <v-divider v-if="index + 1 < items.length" :key="item.subheader"></v-divider>
       </v-list>
     </v-menu>
- 
+
+    <app-dialog-config-api 
+      :show="show_dialog" 
+      v-on:closeDialog="onCloseDialog"
+      >
+    </app-dialog-config-api>
 </v-app-bar>
 
