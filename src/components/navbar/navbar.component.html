@@ -29,9 +29,10 @@
         justify="start"
       >
         <v-col>
-
           <!-- BEGIN ROUTER VIEW COMPONENT -->
-          <router-view></router-view>
+          <transition name="slide" mode="out-in">
+            <router-view></router-view>
+          </transition>   
           <!-- END ROUTER VIEW  COMPONENT -->
           
         </v-col>

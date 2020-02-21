@@ -61,7 +61,10 @@ export default {
       this.$emit('clikedDrawer', this.isDrawer);
     },
     onSearchItemSelected($event) {
-      alert($event);
+      if ($event) {
+        localStorage.setItem('LAST_SEARCH_ID_TRACK', JSON.stringify($event.id));
+        this.$router.replace({ name: 'track', params: { trackId: $event.id } });
+      }
     },
     onClickListItem(id) {
       if (id == 11) {

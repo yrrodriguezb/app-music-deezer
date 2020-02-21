@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuetify, {
+  VAlert,
   VApp,
   VAppBar,
   VAppBarNavIcon,
@@ -41,6 +42,7 @@ import Vuetify, {
 } from 'vuetify/lib'
 
 const VuetifyComponents = {
+  VAlert,
   VApp,
   VAppBar,
   VAppBarNavIcon,
