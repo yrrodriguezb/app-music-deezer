@@ -1,0 +1,66 @@
+# --- General options --- #
+
+# Name of website
+title: App Music Deezer
+
+# Short description of your site
+description: streaming music service using the deezer platform API 
+
+# --- Local development options ---
+# If your website is hosted locally rather than on GitHub, then you need to uncomment the next two parameters to set the url and baseurl
+# *** If you're not sure what this mean, then leave this section as it is. Only modify the url and baseurl if you know what you're doing!***
+
+# url is the the website domain URL without a trailing slash
+url: "https://yrrodriguezb.github.io/app-music-deezer"
+
+# baseurl should be an empty string
+baseurl: ""
+
+# --- Navigation bar options --- #
+
+# List of links in the navigation bar
+navbar-links:
+  Author's home: "https://github.com/yrrodriguezb"
+
+# Select your active Social Network Links.
+# Uncomment the links you want to show in the footer and add your information to each link.
+# You can reorder the items to define the link order.
+# If you want to add a new link that isn't here, you'll need to also edit the file _data/SocialNetworks.yml
+social-network-links:
+  rss: true
+  github: https://github.com/yrrodriguezb
+  facebook: https://www.facebook.com/yeisonraul.rodriguezbaquero
+#  twitter: daattali
+#  reddit: yourname
+#  linkedin: daattali
+#  xing: yourname
+#  stackoverflow: "3943160/daattali"
+#  snapchat: deanat78
+#  instagram: deanat78
+#  youtube: user/deanat78
+#  spotify: yourname
+#  telephone: +14159998888
+#  steam: deanat78
+#  twitch: yourname
+#  yelp: yourname
+
+# Select which share links to show in posts
+share-links-active:
+  github: true
+  facebook: true
+
+
+# Use tags index page and make tags on each post clickable
+link-tags: true
+
+# Exclude these files from production site
+exclude:
+  - CHANGELOG.md
+  - CNAME
+  - Dockerfile
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - README.md
+  - Vagrantfile
+
