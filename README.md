@@ -7,18 +7,6 @@
 npm install
 ```
 
-### Configuración archivo secrets.js
-``` javascript
-// src/secrets.js
-
-export default {
-  API_DEEZER: {
-    X_RAPIDAPI_HOST: 'X_RAPIDAPI_HOST',
-    X_RAPIDAPI_KEY: 'X_RAPIDAPI_KEY'
-  }
-}
-```
-
 Para mas información consultar en la pagina de __[RapidAPI](https://rapidapi.com/)__
 
 ### Compilación en modo desarrollo
@@ -35,3 +23,7 @@ npm run build
 ```
 npm run lint
 ```
+
+### Live Demo
+
+Ir al sitio de publicación. __[Demo](https://yrrodriguezb.github.io/app-music-deezer/)__
