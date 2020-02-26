@@ -1,7 +1,13 @@
 import TrackService from "@/services/track.service";
 
 export default {
-	name: "music-track",
+	name: "MusicTrackComponent",
+	props: {
+		song: {
+			type: Object,
+			default: null
+		}
+	},
 	data(){
 		return {
 			show: false,
@@ -9,12 +15,10 @@ export default {
 		}
 	},
 	created() {
-    this.getTrack();
+    	this.onCreated();
 	},
 	methods: {
-		getTrack() {
-			let trackId = this.$route.params.trackId;
-
+		getTrack(trackId) {
 			if (!trackId)
 				return;
 
@@ -32,6 +36,17 @@ export default {
         this.track = data;
         this.show = true;
       }
+		},
+		onCreated() {
+			let trackId = this.$route.params.trackId;
+
+			if (!trackId) {
+				this.track = this.song || {};
+				this.show = this.song ? true : false;
+				return;
+			}
+
+			this.getTrack(trackId);
 		}
 	},
 	watch: {

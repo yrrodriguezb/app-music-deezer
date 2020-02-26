@@ -10,10 +10,11 @@ export default {
   data () {
     return {
       items: [
-        { icon: 'music-circle-outline', title: 'Canciones' },
-        { icon: 'library-video', title: 'Álbumnes' },
-        { icon: 'artist', title: 'Artistas' },
-        { icon: 'bookmark-music', title: 'Archivos locales' }
+        { icon: 'mdi-home', title: 'Inicio', href:"/" },
+        { icon: 'mdi-music-circle-outline', title: 'Canciones', href:"#" },
+        { icon: 'mdi-library-video', title: 'Álbumnes', href:"#" },
+        { icon: 'mdi-artist', title: 'Artistas', href:"#" },
+        { icon: 'mdi-bookmark-music', title: 'Archivos locales', href:"#" }
       ]
     } 
   }

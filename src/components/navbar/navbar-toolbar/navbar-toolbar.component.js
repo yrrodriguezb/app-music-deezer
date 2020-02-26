@@ -62,8 +62,8 @@ export default {
     },
     onSearchItemSelected($event) {
       if ($event) {
-        localStorage.setItem('LAST_SEARCH_ID_TRACK', JSON.stringify($event.id));
-        this.$router.replace({ name: 'track', params: { trackId: $event.id } });
+        localStorage.setItem('LAST_TRACK_SEARCHED', JSON.stringify($event));
+        this.$router.push({ name: 'track', params: { trackId: $event.id } });
       }
     },
     onClickListItem(id) {
