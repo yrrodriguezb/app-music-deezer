@@ -1,7 +1,11 @@
 import TrackService from "@/services/track.service";
+import AudioPlayerComponent from "@/components/controls/audio-player/audio-player.component.vue";
 
 export default {
 	name: "MusicTrackComponent",
+	components: {
+		'app-audio-player': AudioPlayerComponent
+	},
 	props: {
 		song: {
 			type: Object,

@@ -10,7 +10,7 @@ export default {
   data () {
     return {
       items: [
-        { icon: 'mdi-home', title: 'Inicio', href:"/" },
+        { icon: 'mdi-home', title: 'Inicio', href: { name: 'home' } },
         { icon: 'mdi-music-circle-outline', title: 'Canciones', href:"#" },
         { icon: 'mdi-library-video', title: 'Álbumnes', href:"#" },
         { icon: 'mdi-artist', title: 'Artistas', href:"#" },

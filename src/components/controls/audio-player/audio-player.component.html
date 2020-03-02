@@ -1,0 +1,38 @@
+<div>
+  <v-toolbar flat class="my-5">
+    <v-spacer></v-spacer>
+
+    <v-btn icon v-if="!playing" @click="play">
+      <v-icon>mdi-play</v-icon>
+    </v-btn>
+
+    <v-btn icon v-else @click="pause">
+      <v-icon>mdi-pause</v-icon>
+    </v-btn>
+
+    <v-btn icon @click="pause">
+      <v-icon>mdi-stop</v-icon>
+    </v-btn>
+
+    <v-btn icon @click="reload">
+      <v-icon>mdi-replay</v-icon>
+    </v-btn>
+
+    {{ time_player | secondsToTime }}
+
+    <v-progress-linear v-model="progress" class="mx-3"></v-progress-linear>
+
+    {{ time_end | secondsToTime }}
+
+    <v-spacer></v-spacer>
+  </v-toolbar>
+
+
+  <audio 
+    id="audio_player" 
+    ref="audio_player" 
+    :autoplay="autoplay" 
+    :src="src" 
+    style="display: none;"
+  ></audio>
+</div>

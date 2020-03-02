@@ -80,8 +80,6 @@ export default {
     onSuccess(result) {
       if (!result.error)
         this.tracks = result.data;
-
-      console.log(this.tracks);
     },
     onCreated() {
       this.getLastTrackSearched();
