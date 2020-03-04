@@ -1,10 +1,13 @@
 import TrackService from "@/services/track.service";
 import AudioPlayerComponent from "@/components/controls/audio-player/audio-player.component.vue";
+import RenderLessAudioPlayerComponent from "@/components/renderless/audio-player";
+import secondsToTime from "@/pipes/secondsToTime.pipe";
 
 export default {
 	name: "MusicTrackComponent",
 	components: {
-		'app-audio-player': AudioPlayerComponent
+		'app-audio-player': AudioPlayerComponent,
+		'render-audio-player': RenderLessAudioPlayerComponent
 	},
 	props: {
 		song: {
@@ -19,8 +22,11 @@ export default {
 		}
 	},
 	created() {
-    	this.onCreated();
+    this.onCreated();
 	},
+	filters: {
+    secondsToTime
+  },
 	methods: {
 		getTrack(trackId) {
 			if (!trackId)
@@ -56,7 +62,7 @@ export default {
 	watch: {
     '$route.params.trackId': function (newId, oldId) {
 				if (newId !== oldId)
-					this.getTrack();
+					this.getTrack(newId);
 		}
 	}
 }

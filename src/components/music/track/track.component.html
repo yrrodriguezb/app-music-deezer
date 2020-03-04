@@ -20,19 +20,46 @@
     </v-list-item>
 
     <v-card-actions>
-      <v-btn rounded color="success" small>
-        <v-icon left>mdi-play</v-icon>
-        REPRODUCIR
-      </v-btn>
 
-      <v-btn icon>
-        <v-icon>mdi-dots-vertical</v-icon>
-      </v-btn>
+      <render-audio-player :src="track.preview">
+        <div slot-scope="{ playing, autoplay, time_player, play, pause, reload }">
+          <v-toolbar flat class="my-5">
+            <v-spacer></v-spacer>
+
+            <v-btn rounded color="success" small @click="play">
+              <v-icon left>mdi-play</v-icon>
+              REPRODUCIR
+            </v-btn>
+        
+            <v-btn icon @click="pause">
+              <v-icon>mdi-pause</v-icon>
+            </v-btn>
+        
+            <v-btn icon @click="pause">
+              <v-icon>mdi-stop</v-icon>
+            </v-btn>
+        
+            <v-btn icon @click="reload">
+              <v-icon>mdi-replay</v-icon>
+            </v-btn>
+
+            {{ time_player | secondsToTime }}
+        
+            <v-spacer></v-spacer>
+          </v-toolbar>
+  
+          <audio 
+            id="audio_player" 
+            ref="audio_player" 
+            :autoplay="autoplay" 
+            :src="track.preview" 
+            style="display: none;"
+          ></audio>
+        </div>
+      </render-audio-player>
     </v-card-actions>
   </v-card>
 
-  <app-audio-player :src="track.preview">
-  </app-audio-player>
 </div>
 
 <div v-else>
